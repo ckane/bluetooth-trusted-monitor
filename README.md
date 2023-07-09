@@ -36,8 +36,24 @@ If you don't know the Bluetooth device id, you can run `bluetoothctl scan on` to
 for bluetooth devices announcing themselves, and then put your device into discoverable / pairing mode, and
 you should see it show up on the list.
 
-Once you've added the device to your trust list, it should be connectable (relatively) immediately, and all
-you should need to do is turn it on.
+Once you've added the device to your trust list, it should be connectable, you will need to turn it on and
+then establish a connection to it in order to save the trust relationship:
+```bash
+bluetoothctl connect 12:34:56:78:90:AB
+```
+
+The following, or similar, should be displayed if it worked, and the LED indicator on the device (if any)
+should indicate it is connected:
+```
+Attempting to connect to 12:34:56:78:90:AB
+[CHG] Device 12:34:56:78:90:AB Connected: yes
+[CHG] Device 12:34:56:78:90:AB Modalias: usb:v057Ep0330d0001
+[CHG] Device 12:34:56:78:90:AB UUIDs: 00001124-0000-1000-8000-00805f9b34fb
+[CHG] Device 12:34:56:78:90:AB UUIDs: 00001200-0000-1000-8000-00805f9b34fb
+[CHG] Device 12:34:56:78:90:AB ServicesResolved: yes
+[CHG] Device 12:34:56:78:90:AB WakeAllowed: yes
+Connection successful
+```
 
 # Un-trusting a New Bluetooth Device
 
