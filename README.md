@@ -55,6 +55,17 @@ Attempting to connect to 12:34:56:78:90:AB
 Connection successful
 ```
 
+The important detail here is that you need to make sure you establish a connection soon after you trusted
+the device, or else it will get un-cached by BlueZ and your trust setting will be forgotten.
+
+# Testing
+
+If it worked properly, the bluetooth device should remain connected (active indicator) for as long as either
+the device or the BlueZ system is powered on. Furthermore, you should be able to turn the bluetooth device off
+for extended periods of time (hours, days, etc...), and then it should be able to reconnect after turning on.
+Similarly, you should be able to reboot the system running BlueZ, and then once it comes back up, you should
+be able to reconnect the bluetooth device simply by powering it on.
+
 # Un-trusting a New Bluetooth Device
 
 To remove the device from the trust list, you'll need to run the following, as root:
