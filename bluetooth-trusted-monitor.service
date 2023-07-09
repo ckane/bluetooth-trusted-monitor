@@ -1,0 +1,10 @@
+[Unit]
+Description=Bluetooth trusted device monitoring service
+Before=bluetooth.service
+
+[Service]
+Type=exec
+ExecStart=/opt/bluetooth-trusted-monitor/bluetooth-trusted-monitor.sh
+
+[Install]
+WantedBy=bluetooth.service
